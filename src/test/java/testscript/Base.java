@@ -43,6 +43,10 @@ public FileInputStream fileinputstream;
 		else if (browser.equalsIgnoreCase("Firefox")) {
 			driver= new FirefoxDriver();
 		}
+		//added chrome bcoz in jenkins edge was being crashed continously
+		else if (browser.equalsIgnoreCase("Chrome")) {
+		    driver = new ChromeDriver();
+		}
 		
 		else 
 		{

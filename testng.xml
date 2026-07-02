@@ -4,8 +4,8 @@
 <listeners>
 		<listener class-name="generateReport.Listeners"></listener>
 	</listeners>
-	<parameter name="browser" value="Edge"></parameter>
-  <test thread-count="5" name="EdgeTest">
+	<parameter name="browser" value="Chrome"></parameter>
+  <test thread-count="5" name="ChromeTest">
     <classes>
       <class name="testscript.LoginTest"/>
       <class name="testscript.ManageNewsTest"/>
