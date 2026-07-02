@@ -5,13 +5,14 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constant.Constant;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
 
 public class LoginTest extends Base {
 
-	@Test(description="Validating Login Functionality", retryAnalyzer = retry.Retry.class)
+	@Test(description="Validating Login Functionality", retryAnalyzer = retry.Retry.class, groups={"regression"})
 	public void verifyUserIsAbleToLoginwithValidCredentials() throws IOException {
 		//String username = "admin";
 		//String password = "admin";
@@ -24,7 +25,7 @@ public class LoginTest extends Base {
 		loginpage.clickSigninButton();
 		
 		boolean homepage=loginpage.isDashboardDisplayed();
-		Assert.assertTrue(homepage);
+		Assert.assertTrue(homepage, Constant.VALIDCREDENTIALS);
 		
 	}
 	
@@ -40,7 +41,7 @@ public class LoginTest extends Base {
 		loginpage.enterPassword(password);
 		loginpage.clickSigninButton();
 		boolean alertmessage=loginpage.isAlertDisplayed();
-		Assert.assertTrue(alertmessage);
+		Assert.assertTrue(alertmessage, Constant.INVALIDCRED);
 		
 	}
 	@Test(description = "Validating Login With Valid Username And Invalid Password", retryAnalyzer = retry.Retry.class)
@@ -55,7 +56,7 @@ public class LoginTest extends Base {
 		loginpage.enterPassword(password);
 		loginpage.clickSigninButton();
 		boolean alertmessage=loginpage.isAlertDisplayed();
-		Assert.assertTrue(alertmessage);
+		Assert.assertTrue(alertmessage, Constant.INVALIDCRED);
 	}
     @Test(description = "Validating Login With Invalid Credentials", retryAnalyzer = retry.Retry.class)
 	public void verifyUserIsAbleToLoginwithInvalidCredentials() throws IOException {
@@ -70,6 +71,6 @@ public class LoginTest extends Base {
 		loginpage.clickSigninButton();
 		
 		boolean alertmessage=loginpage.isAlertDisplayed();
-		Assert.assertTrue(alertmessage);
+		Assert.assertTrue(alertmessage, Constant.INVALIDCRED);
 	}
 }

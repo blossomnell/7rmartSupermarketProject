@@ -24,7 +24,7 @@ public WebDriver driver;
 public Properties properties;
 public FileInputStream fileinputstream;
 	
-	@BeforeMethod	
+	@BeforeMethod(alwaysRun=true)
 	@Parameters("browser")
 	public void browserInitialization(String browser) throws Exception {
 		
@@ -62,7 +62,7 @@ public FileInputStream fileinputstream;
 		//driver.quit(); 
 		//driver.close(); 
 	
-	@AfterMethod
+	@AfterMethod(alwaysRun=true)
 	public void browserQuit(ITestResult iTestResult) throws IOException {
 		if (iTestResult.getStatus() == ITestResult.FAILURE) {
 			ScreenShotUtility scrShot = new ScreenShotUtility(); // creating obj

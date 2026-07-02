@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constant.Constant;
 import pages.LoginPage;
 import pages.ManageContactPage;
 import utilities.ExcelUtility;
@@ -42,6 +43,6 @@ public class ManageContactTest extends Base{
         manageContactPage.clickUpdateButton();
 
         boolean successmessage = manageContactPage.isSuccessMessageDisplayed();
-        Assert.assertTrue(successmessage);
+        Assert.assertTrue(successmessage, Constant.SUCCESSMSGNOTDISPLAYED);
     }
 }

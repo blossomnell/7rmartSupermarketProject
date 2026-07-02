@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constant.Constant;
 import pages.LoginPage;
 import pages.LogoutPage;
 import utilities.ExcelUtility;
@@ -12,7 +13,7 @@ import utilities.ExcelUtility;
 
 public class LogoutTest extends Base {
 
-	@Test(description = "Verify Successful Logout", retryAnalyzer = retry.Retry.class)
+	@Test(description = "Verify Successful Logout", retryAnalyzer = retry.Retry.class, groups= {"regression"})
 	public void verifySuccessfullLogout() throws IOException {
 		String username = ExcelUtility.getStringData(1, 0, "loginpage");
 		String password = ExcelUtility.getStringData(1, 1, "loginpage");
@@ -26,6 +27,6 @@ public class LogoutTest extends Base {
 		logoutPage.clickLogoutButton();
 		
 		boolean signinpage = logoutPage.isSigninButtonDisplayed();
-		Assert.assertTrue(signinpage);
+		Assert.assertTrue(signinpage, Constant.LOGOUTFAIL);
 	}
 }

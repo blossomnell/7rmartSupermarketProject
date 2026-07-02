@@ -35,6 +35,6 @@ public class ManageCategoryTest extends Base{
         manageCategoryPage.clickSaveButton();
 
         boolean successmessage = manageCategoryPage.isSuccessMessageDisplayed();
-        Assert.assertTrue(successmessage);
+        Assert.assertTrue(successmessage, Constant.SUCCESSMSGNOTDISPLAYED);
     }
 }
