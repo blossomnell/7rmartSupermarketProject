@@ -79,7 +79,8 @@ public class ManageContactPage {
     }
 
     public void clickUpdateButton() {
-        updateButton.click();
+        //updateButton.click();
+    	 pageUtility.javaScriptExecutorClick(driver, updateButton);
     }
 
     public boolean isSuccessMessageDisplayed() {
